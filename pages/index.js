@@ -29,7 +29,7 @@ export default function Index({ quotes }) {
           <div className="flex flex-wrap justify-center">
           {
             quotes.map(quote => {
-              return (<QuoteComponent quote={quote}/>)
+              return (<QuoteComponent key={quote._id} quote={quote}/>)
             })
           }
           </div>
