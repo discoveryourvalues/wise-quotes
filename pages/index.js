@@ -7,12 +7,16 @@ import { getAllPosts } from '../lib/api'
 import Head from 'next/head'
 import { CMS_NAME } from '../lib/constants'
 
+import axios from 'axios';
+
 // Components
 import Search from '../components/search'
+import QuoteComponent from '../components/quote-component'
 
-export default function Index({ allPosts }) {
+export default function Index({ quotes }) {
   // const heroPost = allPosts[0]
-  const morePosts = allPosts.slice(1)
+  // const morePosts = allPosts.slice(1)
+  const morePosts = []
   return (
     <>
       <Layout>
@@ -22,9 +26,13 @@ export default function Index({ allPosts }) {
         <Intro/>
         <Container>
           <Search />
+          <div className="flex flex-wrap">
           {
-            morePosts.length > 0 && <MoreStories posts={morePosts} />
+            quotes.map(quote => {
+              return (<QuoteComponent className="w-full" quote={quote}/>)
+            })
           }
+          </div>
         </Container>
       </Layout>
     </>
@@ -32,18 +40,30 @@ export default function Index({ allPosts }) {
 }
 
 export async function getStaticProps() {
-  const allPosts = getAllPosts([
-    'title',
-    'date',
-    'slug',
-    'author',
-    'coverImage',
-    'excerpt',
-  ])
+    const response = await axios.get('http://localhost:3000/api/quotes');
+    const dataString = JSON.stringify(response.data)
+    const { data: quotes } = JSON.parse(dataString)
 
-  console.log(allPosts)
 
-  return {
-    props: { allPosts },
-  }
+    return {
+      props: { quotes }
+    }
 }
+
+// export async function getStaticProps() {
+//   const allPosts = getAllPosts([
+//     'title',
+//     'date',
+//     'slug',
+//     'author',
+//     'coverImage',
+//     'excerpt',
+//   ])
+
+//   console.log(allPosts)
+
+//   return {
+//     props: { allPosts },
+//   }
+// }
+
