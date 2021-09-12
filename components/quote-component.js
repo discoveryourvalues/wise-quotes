@@ -24,18 +24,19 @@ export default function QuoteComponent({ quote: quoteObj }) {
     const { author, author_image, author_bio, date_said, quote} = quoteObj
 
     return (
-
-    <div className="flex max-w-md min-w-md bg-white rounded-xl shadow-md overflow-hidden md:w-l md:min-w-l m-2">
-    <div className="md:flex">
-      <div className="md:flex-shrink-0 m-auto">
-        <img className="m-2 w-1/2 m-auto rounded-full" src="https://images.gr-assets.com/authors/1393978633p5/879.jpg" alt="Man looking at item at a store" />
+    <Link className="" href="">
+      <div className="flex max-w-md min-w-md bg-white rounded-xl shadow-md overflow-hidden md:w-l md:min-w-l m-2">
+      <div className="md:flex cursor-pointer">
+        <div className="md:flex-shrink-0 m-auto">
+          <img className="m-2 w-1/2 m-auto rounded-full" src="https://images.gr-assets.com/authors/1393978633p5/879.jpg" alt="Man looking at item at a store" />
+        </div>
+        <div className="p-8 m-auto">
+          <a href="#" className="mt-2 text-gray-500">{quote}</a>
+          <p className="block mt-3 text-md leading-tight font-medium text-black hover:underline">{author}</p>
+          {/* <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Tags</div> */}
+        </div>
       </div>
-      <div className="p-8 m-auto">
-        <a href="#" className="mt-2 text-gray-500">{quote}</a>
-        <p className="block mt-3 text-md leading-tight font-medium text-black hover:underline">{author}</p>
-        {/* <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Tags</div> */}
       </div>
-    </div>
-    </div>
+    </Link>
     )
 }
