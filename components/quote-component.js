@@ -25,26 +25,17 @@ export default function QuoteComponent({ quote: quoteObj }) {
 
     return (
 
-    <div class="max-w-md min-w-md bg-white rounded-xl shadow-md overflow-hidden md:max-w-l md:min-w-l m-2">
+    <div class="flex max-w-md min-w-md bg-white rounded-xl shadow-md overflow-hidden md:w-l md:min-w-l m-2">
     <div class="md:flex">
       <div class="md:flex-shrink-0 m-auto">
-        <img className="w-1/2 m-auto rounded-full" src="https://images.gr-assets.com/authors/1393978633p5/879.jpg" alt="Man looking at item at a store" />
+        <img className="m-2 w-1/2 m-auto rounded-full" src="https://images.gr-assets.com/authors/1393978633p5/879.jpg" alt="Man looking at item at a store" />
       </div>
-      <div class="p-8">
-        <a href="#" class="block mt-1 text-md leading-tight font-medium text-black hover:underline">{quote}</a>
-        <p class="mt-2 text-gray-500">{author}</p>
+      <div class="p-8 m-auto">
+        <a href="#" class="mt-2 text-gray-500">{quote}</a>
+        <p class="block mt-3 text-md leading-tight font-medium text-black hover:underline">{author}</p>
         {/* <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Tags</div> */}
       </div>
     </div>
     </div>
     )
-}
-
-const IMG = {
-    height: '60px',
-    width: '60px',
-    minWidth: '60px',
-    borderRadius: '100%',
-    objectFit: 'cover'
-
 }

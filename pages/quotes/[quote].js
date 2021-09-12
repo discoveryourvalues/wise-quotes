@@ -20,7 +20,7 @@ export default function QuoteView({ quote }) {
 //     return <ErrorPage statusCode={404} />
 //   }
 
-  console.log(query)
+  // console.log(query)
   return (
     <Layout>
       <Container>

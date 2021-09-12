@@ -26,10 +26,10 @@ export default function Index({ quotes }) {
         <Intro/>
         <Container>
           <Search />
-          <div className="flex flex-wrap">
+          <div className="flex flex-wrap justify-center">
           {
             quotes.map(quote => {
-              return (<QuoteComponent className="w-full" quote={quote}/>)
+              return (<QuoteComponent quote={quote}/>)
             })
           }
           </div>
