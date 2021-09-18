@@ -9,7 +9,7 @@ import dbConnect from '../lib/dbConnect'
 // Components
 import Search from '../components/search'
 import QuoteComponent from '../components/quote-component'
-
+import SeeMore from '../components/see-more'
 export default function Index({ quotes }) {
   // const heroPost = allPosts[0]
   // const morePosts = allPosts.slice(1)
@@ -30,6 +30,7 @@ export default function Index({ quotes }) {
             })
           }
           </div>
+          <SeeMore />
         </Container>
       </Layout>
     </>
@@ -60,7 +61,7 @@ export async function getServerSideProps() {
     console.log(err)
   }
 
-  const rawQuotes = await Quotes.find({}).limit(100)
+  const rawQuotes = await Quotes.find({}).limit(20)
 
   const dataString = JSON.stringify(rawQuotes)
   const quotes = JSON.parse(dataString)
