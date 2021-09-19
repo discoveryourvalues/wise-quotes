@@ -3,31 +3,20 @@ import Avatar from './avatar'
 import DateFormatter from './date-formatter'
 import CoverImage from './cover-image'
 import Link from 'next/link'
+
+import { quoteToRouteQuote } from '../util/index'
 // import QuoteView from '../pages/quotes/[quote]'
 
 export default function QuoteComponent({ quote: quoteObj }) {
     
-    // return (
-    //   <div>
-    //   <h3 classNameNameName="text-3xl mb-3 leading-snug">
-    //     {/* <Link as={`/posts/${slug}`} href="/posts/[slug]"> */}
-    //       <a classNameNameName="hover:underline">{quote.quote}</a>
-    //     {/* </Link> */}
-    //   </h3>
-    //   <div classNameNameName="text-lg mb-4">
-    //     {/* <DateFormatter dateString={new Date(quote.date_said)} /> */}
-    //   </div>
-    //   <Avatar name={quote.author} picture={quote.author_image} />
-    //   <p classNameNameName="text-lg leading-relaxed mb-4">{quote.author_bio}</p>
-    // </div>    
-    // )
     const { author, author_image, author_bio, date_said, quote} = quoteObj
+    const routeQuote = quoteToRouteQuote(quote)
 
     return (
-    <Link className="" href="">
+    <Link className="" href={`/quotes/${routeQuote}`}>
       <div className="flex max-w-md min-w-md bg-white rounded-xl shadow-md overflow-hidden md:w-l md:min-w-l m-2 transition hover:shadow-xl">
       <div className="md:flex cursor-pointer w-screen">
-        <div className="md:flex-shrink-0 m-auto">
+        <div className="md:pt-5 md:flex-shrink-0 m-auto">
           <img className="m-2 w-1/2 m-auto rounded-full" src="https://images.gr-assets.com/authors/1393978633p5/879.jpg" alt="Man looking at item at a store" />
         </div>
         <div className="p-8 m-auto">
